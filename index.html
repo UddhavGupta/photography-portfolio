@@ -95,6 +95,9 @@ figcaption .pl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-
 .about p{margin:0 0 18px;max-width:60ch;font-size:18px;color:#cfcac2}
 .about-link{color:var(--paper);text-decoration-color:var(--sodium);text-underline-offset:3px}
 .about-link:hover{color:var(--sodium)}
+.elsewhere{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.elsewhere a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:10px 16px;transition:border-color .2s,color .2s}
+.elsewhere a:hover{border-color:var(--sodium);color:var(--sodium)}
 .series-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
 .series-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .series-list li:nth-child(odd){padding-right:20px}
@@ -173,6 +176,11 @@ footer .links a:hover{color:var(--sodium)}
       <p>Shot on my Nikons and iPhones.</p>
       <p>Published: <a class="about-link" href="https://digital-photography-school.com/how-to-create-a-spectacular-background-using-an-el-bokeh-wall/" target="_blank" rel="noopener">How to Create a Spectacular Background Using an EL Bokeh Wall</a>, Digital Photography School, 2015.</p>
       <ul class="series-list" id="seriesList"></ul>
+      <nav class="elsewhere" aria-label="Elsewhere">
+        <a href="https://www.linkedin.com/in/guptauddhav" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="https://www.guptau.com" target="_blank" rel="noopener">Website <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/UddhavGupta" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
   </section>
 </main>
