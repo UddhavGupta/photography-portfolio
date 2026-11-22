@@ -267,7 +267,7 @@ const PHOTOS = {
   52: {"s": "ground", "t": "Lada Taxi at the Mud Volcanoes", "p": "Gobustan, Azerbaijan", "r": [2260, 1498], "x": {"cam": "Nikon Z 50", "fl": "23mm", "f": "f/5.6", "ss": "1/250s", "iso": "ISO 140"}}
 };
 /* Camera settings live in x:{cam, lens, fl, f, ss, iso, ev, d}. hdr:true adds the HDR tag. */
-const ORDER = [1,43,29,5,48,2,34,41,19,14,52,27,8,44,25,42,11,10,13,37,45,7,33,51,6,12,28,47,3,39,23,36,9,4,46,15,18,26,49,38,21,22,32,50,17,24,35,16,20,31,30,40];
+const ORDER = [1,43,5,33,2,34,12,41,37,19,3,14,47,52,38,27,8,44,29,25,42,11,10,13,48,45,7,51,6,28,39,23,36,9,4,46,15,18,26,49,21,22,32,50,17,24,35,16,20,31,30,40];
 const exLine = x => x ? [x.fl,x.f,x.ss,x.iso,x.ev].filter(Boolean).join(' · ') : '';
 const id2 = n => String(n).padStart(2,'0');
 const full = n => `img/full/${id2(n)}.jpg`, thumb = n => `img/thumb/${id2(n)}.jpg`;
