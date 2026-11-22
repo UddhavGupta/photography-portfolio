@@ -102,6 +102,10 @@ figcaption .pl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-
 .series-list b{color:var(--paper);font-weight:500}
 footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px clamp(16px,4vw,48px) 40px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 footer a{color:inherit;text-decoration:none}
+footer a:hover{color:var(--paper)}
+footer .links{display:flex;gap:24px;flex-wrap:wrap}
+footer .links a{color:var(--paper)}
+footer .links a:hover{color:var(--sodium)}
 
 /* Lightbox */
 .lb{position:fixed;inset:0;z-index:50;background:#060608;display:none;grid-template-rows:auto 1fr auto}
@@ -175,6 +179,11 @@ footer a{color:inherit;text-decoration:none}
 
 <footer>
   <span>© 2026 Uddhav Gupta Photography. All rights reserved.</span>
+  <nav class="links" aria-label="Elsewhere">
+    <a href="https://www.linkedin.com/in/guptauddhav" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://www.guptau.com" target="_blank" rel="noopener">Website ↗</a>
+    <a href="https://github.com/UddhavGupta" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
   <a href="#top">Back to top ↑</a>
 </footer>
 
