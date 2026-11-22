@@ -240,10 +240,21 @@ const PHOTOS = {
   26: {"s": "city", "t": "Floating Boat", "p": "Venice, Italy", "r": [2400, 1566], "x": {"cam": "Nikon D5100", "fl": "82mm", "f": "f/5.6", "ss": "1/60s", "iso": "ISO 400"}},
   27: {"s": "wild", "t": "Jellyfish", "p": "Atlanta, Georgia", "r": [1800, 2400], "x": {"cam": "iPhone 12 Pro", "fl": "51mm", "f": "f/1.6", "ss": "1/60s", "iso": "ISO 400"}},
   28: {"s": "city", "t": "Urban Light", "p": "LACMA, Los Angeles", "r": [2400, 1582], "x": {"cam": "Nikon D5100", "fl": "42mm", "f": "f/4.5", "ss": "1/1600s", "iso": "ISO 100"}, "hdr": true},
-  29: {"s": "city", "t": "Taj Mahal Through the Gate", "p": "Agra, India", "r": [1589, 2400], "x": {"cam": "Nikon D5100", "fl": "12mm", "f": "f/8", "ss": "1/250s", "iso": "ISO 100"}}
+  29: {"s": "city", "t": "Taj Mahal Through the Gate", "p": "Agra, India", "r": [1589, 2400], "x": {"cam": "Nikon D5100", "fl": "12mm", "f": "f/8", "ss": "1/250s", "iso": "ISO 100"}},
+  30: {"s": "speed", "t": "Cook County Sheriff N911VH", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "187mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
+  31: {"s": "speed", "t": "Chicago Police N911ZP", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "240mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
+  32: {"s": "speed", "t": "Rescue Demonstration", "p": "Chicago Fire Department, Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "375mm", "f": "f/6.3", "ss": "1/3200s", "iso": "ISO 200"}},
+  33: {"s": "wild", "t": "Koala", "p": "Washington, D.C.", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/250s", "iso": "ISO 640"}},
+  34: {"s": "wild", "t": "Andean Cock-of-the-Rock", "p": "San Diego, California", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "210mm", "f": "f/6", "ss": "1/250s", "iso": "ISO 1800"}},
+  35: {"s": "wild", "t": "Golden-Breasted Starling", "p": "Wildlife", "r": [1598, 2400], "x": {"cam": "Nikon Z 50", "fl": "160mm", "f": "f/5.6", "ss": "1/125s", "iso": "ISO 6400"}},
+  36: {"s": "wild", "t": "Lionesses", "p": "Chicago, Illinois", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/640s", "iso": "ISO 100"}},
+  37: {"s": "speed", "t": "Kentucky Derby", "p": "Louisville, Kentucky", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "120mm", "f": "f/5.3", "ss": "1/1000s", "iso": "ISO 500"}},
+  38: {"s": "city", "t": "Cherry Blossoms at the Tidal Basin", "p": "Washington, D.C.", "r": [2400, 1800], "x": {"cam": "iPhone 17 Pro", "fl": "100mm", "f": "f/2.8", "ss": "1/120s", "iso": "ISO 200", "ev": "+2 EV"}},
+  39: {"s": "speed", "t": "Etihad A350-1000", "p": "Abu Dhabi, UAE", "r": [2400, 1800], "x": {"cam": "iPhone 17 Pro", "fl": "200mm", "f": "f/2.8", "ss": "1/334s", "iso": "ISO 20"}},
+  40: {"s": "speed", "t": "Grave Digger", "p": "Seattle, Washington", "r": [2400, 1800], "x": {"cam": "iPhone 14 Pro", "fl": "135mm", "f": "f/2.8", "ss": "1/100s", "iso": "ISO 160"}}
 };
 /* Camera settings live in x:{cam, lens, fl, f, ss, iso, ev, d}. hdr:true adds the HDR tag. */
-const ORDER = [1,5,19,29,25,12,2,14,23,11,17,13,21,28,4,9,7,6,8,18,27,15,22,24,10,26,3,20,16];
+const ORDER = [1,5,19,29,34,25,12,37,2,14,31,23,11,17,38,13,21,28,33,39,4,9,7,6,32,8,18,27,36,15,22,24,40,10,26,30,3,35,20,16];
 const exLine = x => x ? [x.fl,x.f,x.ss,x.iso,x.ev].filter(Boolean).join(' · ') : '';
 const id2 = n => String(n).padStart(2,'0');
 const full = n => `img/full/${id2(n)}.jpg`, thumb = n => `img/thumb/${id2(n)}.jpg`;
