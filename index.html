@@ -96,9 +96,12 @@ main{padding:0 clamp(16px,4vw,48px)}
 ::view-transition-group(photo){animation-duration:.5s;animation-timing-function:cubic-bezier(.2,.75,.15,1)}
 ::view-transition-old(photo),::view-transition-new(photo){height:100%;object-fit:contain}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.35s}
-.plate:hover .frame img,.plate:focus-visible .frame img{transform:scale(1.035)}
+.plate:hover .frame img,body.kbd .plate:focus-visible .frame img{transform:scale(1.035)}
 .tag{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:4px 8px;border-radius:999px;background:rgba(10,10,12,.62);color:var(--paper);backdrop-filter:blur(6px)}
-.plate:focus-visible .frame{outline:2px solid var(--sodium);outline-offset:3px}
+.frame{outline:2px solid transparent;outline-offset:3px;transition:outline-color .25s ease}
+.plate:hover .frame,body.kbd .plate:focus-visible .frame{outline-color:var(--sodium)}
+.plate:focus-visible{outline:none}
+.wall.swap .plate .frame{outline-color:transparent}
 figcaption{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;padding:10px 2px 0}
 figcaption .no{font-family:var(--mono);font-size:11px;color:var(--sodium);font-variant-numeric:tabular-nums;grid-row:span 3}
 figcaption .pub{grid-column:2;font-family:var(--mono);font-size:11px;color:var(--paper);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--sodium);width:fit-content}
@@ -437,7 +440,7 @@ function showLb(){const id=visible[lbIx],P=PHOTOS[id];lbImg.src=thumb(id);lbImg.
   document.getElementById('lbTitle').textContent=P.t;document.getElementById('lbPlace').textContent=P.p.toUpperCase();
   const lp=document.getElementById('lbPub');lp.hidden=!P.pub;if(P.pub){lp.href=P.pub.url;lp.textContent=`Method published in ${P.pub.name}, ${P.pub.year} ↗`}
   document.getElementById('lbExif').textContent=P.x?[P.x.cam,P.x.lens,exLine(P.x),P.hdr?'HDR':'',P.x.d].filter(Boolean).join('  ·  '):'';
-  const nx=visible[(lbIx+1)%visible.length];new Image().src=full(nx);}
+  const L=visible.length,nx=visible[(lbIx+1)%L],pv=visible[(lbIx-1+L)%L];new Image().src=full(nx);new Image().src=thumb(pv);new Image().src=full(pv);}
 function closeLb(){const i=lbIx,t=thumbImg(i);
   const go=()=>{lb.classList.remove('open');document.body.style.overflow='';lbIx=-1};
   if(t&&i!==openedIx){t.closest('.plate').scrollIntoView({block:'center'});lastFocus=t.closest('.plate')}
@@ -447,7 +450,27 @@ function closeLb(){const i=lbIx,t=thumbImg(i);
     vt.finished.finally(()=>{t.style.viewTransitionName=''});
   }else go();
   if(lastFocus)lastFocus.focus({preventScroll:true})}
-function step(d){lbIx=(lbIx+d+visible.length)%visible.length;showLb()}
+let stepTok=0;
+async function step(d){
+  if(!visible.length)return;
+  lbIx=(lbIx+d+visible.length)%visible.length;
+  if(reduceMotion||!lbImg.animate){showLb();return}
+  const tok=++stepTok,meta=lb.querySelector('.lb-bottom');
+  lbImg.getAnimations().forEach(a=>a.cancel());meta.getAnimations().forEach(a=>a.cancel());
+  const out=lbImg.animate([{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:`translateX(${-d*56}px) scale(.98)`,filter:'blur(4px)'}],{duration:190,easing:'cubic-bezier(.4,0,1,1)',fill:'forwards'});
+  meta.animate([{opacity:1},{opacity:0}],{duration:160,fill:'forwards'});
+  await out.finished.catch(()=>{});
+  if(tok!==stepTok)return;
+  showLb();try{await lbImg.decode()}catch(_){}
+  if(tok!==stepTok)return;
+  out.cancel();meta.getAnimations().forEach(a=>a.cancel());
+  lbImg.animate([{opacity:0,transform:`translateX(${d*56}px) scale(.98)`,filter:'blur(4px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:420,easing:'cubic-bezier(.2,.75,.15,1)'});
+  meta.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:380,delay:60,easing:'cubic-bezier(.2,.75,.15,1)',fill:'backwards'});
+}
+/* Keyboard-only focus rings: show the orange frame for Tab users, never as a leftover after mouse clicks */
+addEventListener('keydown',e=>{if(e.key==='Tab')document.body.classList.add('kbd')});
+addEventListener('pointerdown',()=>document.body.classList.remove('kbd'));
+addEventListener('pointermove',()=>document.body.classList.remove('kbd'),{passive:true});
 document.getElementById('lbClose').onclick=closeLb;
 document.getElementById('lbPrev').onclick=()=>step(-1);
 document.getElementById('lbNext').onclick=()=>step(1);
