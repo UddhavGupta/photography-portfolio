@@ -205,11 +205,12 @@ const HERO_SLIDES = [1, 8, 2, 19];
 
 /* ---------- Content ---------- */
 const SERIES = {
-  light: 'Light painting',
-  land:  'Landscape',
-  city:  'Cities',
-  wild:  'Wildlife & close-up',
-  speed: 'Speed'
+  light:  'Light painting',
+  land:   'Landscape',
+  city:   'Cities',
+  wild:   'Wildlife & close-up',
+  air:    'Aviation',
+  ground: 'Cars & racing'
 };
 const PHOTOS = {
   1: {"s": "land", "t": "Mesa Arch at Sunrise", "p": "Moab, Utah", "r": [2400, 1599], "x": {"cam": "Nikon Z 50", "fl": "16mm", "f": "f/16", "ss": "1/6s", "iso": "ISO 100", "ev": "−5 EV"}},
@@ -220,17 +221,17 @@ const PHOTOS = {
   6: {"s": "light", "t": "Ring and Shadow", "p": "Light painting, at home", "r": [2400, 1589], "x": {"cam": "Nikon D5100", "fl": "18mm", "f": "f/3.5", "ss": "1s", "iso": "ISO 125"}},
   7: {"s": "city", "t": "Castello Canal", "p": "Venice, Italy", "r": [2400, 1589], "x": {"cam": "Nikon D5100", "fl": "57mm", "f": "f/5.6", "ss": "1/125s", "iso": "ISO 200"}},
   8: {"s": "land", "t": "Schynige Platte Alpine Garden", "p": "Bernese Oberland, Switzerland", "r": [2400, 1643], "x": {"cam": "Nikon D5100", "fl": "42mm", "f": "f/8", "ss": "1/250s", "iso": "ISO 100"}, "hdr": true},
-  9: {"s": "speed", "t": "Aventador Roadster", "p": "Bologna, Italy", "r": [2400, 1580], "x": {"cam": "Nikon D5100", "fl": "27mm", "f": "f/8", "ss": "1/1250s", "iso": "ISO 100"}, "hdr": true},
-  10: {"s": "speed", "t": "Miura Concept", "p": "Bologna, Italy", "r": [2400, 1582], "x": {"cam": "Nikon D5100", "fl": "33mm", "f": "f/5.6", "ss": "1/100s", "iso": "ISO 100"}, "hdr": true},
+  9: {"s": "ground", "t": "Lamborghini Aventador Roadster", "p": "Bologna, Italy", "r": [2400, 1580], "x": {"cam": "Nikon D5100", "fl": "27mm", "f": "f/8", "ss": "1/1250s", "iso": "ISO 100"}, "hdr": true},
+  10: {"s": "ground", "t": "Lamborghini Miura Concept", "p": "Bologna, Italy", "r": [2400, 1582], "x": {"cam": "Nikon D5100", "fl": "33mm", "f": "f/5.6", "ss": "1/100s", "iso": "ISO 100"}, "hdr": true},
   11: {"s": "light", "t": "Champagne and Foil", "p": "Light painting, still life", "x": {"cam": "Nikon D5100", "fl": "150mm", "f": "f/3.5", "ss": "1/3s", "iso": "ISO 100"}, "pub": {"name": "Digital Photography School", "year": "2015", "url": "https://digital-photography-school.com/how-to-create-a-spectacular-background-using-an-el-bokeh-wall/"}, "r": [2400, 1584]},
   12: {"s": "wild", "t": "Butterfly Drinking Nectar", "p": "Singapore", "r": [2400, 1589], "x": {"cam": "Nikon D5100", "fl": "150mm", "f": "f/4", "ss": "1/250s", "iso": "ISO 800"}},
   13: {"s": "land", "t": "Myrtle Falls", "p": "Mount Rainier, Washington", "r": [1599, 2400], "x": {"cam": "Nikon Z 50", "fl": "16mm", "f": "f/3.5", "ss": "1/200s", "iso": "ISO 100", "ev": "+0.7 EV"}},
   14: {"s": "city", "t": "Under the Pyramid", "p": "The Louvre, Paris", "r": [2400, 1580], "x": {"cam": "Nikon D5100", "fl": "27mm", "f": "f/8", "ss": "1/640s", "iso": "ISO 100"}, "hdr": true},
   15: {"s": "city", "t": "Glass Beneath the Needle", "p": "Chihuly Garden, Seattle", "r": [2400, 1800], "x": {"cam": "iPhone 12 Pro", "fl": "4.2mm", "f": "f/1.6", "ss": "1/320s", "iso": "ISO 32"}},
-  16: {"s": "speed", "t": "Acrobatic", "p": "Seattle, Washington", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR", "fl": "250mm", "f": "f/7.1", "ss": "1/800s", "iso": "ISO 100", "d": "7 Aug 2022"}},
-  17: {"s": "speed", "t": "Number Two", "p": "Blue Angels, Huntington Beach", "r": [2400, 1520], "x": {"cam": "Nikon D5100", "fl": "300mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 200"}},
-  18: {"s": "speed", "t": "Five and Six", "p": "Blue Angels, Huntington Beach", "r": [2400, 1625], "x": {"cam": "Nikon D5100", "fl": "300mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 200"}},
-  19: {"s": "speed", "t": "Diamond Formation", "p": "Blue Angels, Seattle", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/4000s", "iso": "ISO 2800"}},
+  16: {"s": "air", "t": "Acrobatic", "p": "Seattle, Washington", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR", "fl": "250mm", "f": "f/7.1", "ss": "1/800s", "iso": "ISO 100", "d": "7 Aug 2022"}},
+  17: {"s": "air", "t": "Number Two", "p": "Blue Angels, Huntington Beach", "r": [2400, 1520], "x": {"cam": "Nikon D5100", "fl": "300mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 200"}},
+  18: {"s": "air", "t": "Five and Six", "p": "Blue Angels, Huntington Beach", "r": [2400, 1625], "x": {"cam": "Nikon D5100", "fl": "300mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 200"}},
+  19: {"s": "air", "t": "Diamond Formation", "p": "Blue Angels, Seattle", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/4000s", "iso": "ISO 2800"}},
   20: {"s": "wild", "t": "Yellow on Grey", "p": "Seattle, Washington", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "210mm", "f": "f/6", "ss": "1/2000s", "iso": "ISO 7200"}},
   21: {"s": "wild", "t": "Turquoise and Crimson", "p": "Seattle, Washington", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/125s", "iso": "ISO 3600"}},
   22: {"s": "city", "t": "Station Clock", "p": "Zürich Hauptbahnhof", "r": [2400, 1589], "x": {"cam": "Nikon D5100", "fl": "52mm", "f": "f/5.6", "ss": "1/125s", "iso": "ISO 360"}},
@@ -241,20 +242,32 @@ const PHOTOS = {
   27: {"s": "wild", "t": "Jellyfish", "p": "Atlanta, Georgia", "r": [1800, 2400], "x": {"cam": "iPhone 12 Pro", "fl": "51mm", "f": "f/1.6", "ss": "1/60s", "iso": "ISO 400"}},
   28: {"s": "city", "t": "Urban Light", "p": "LACMA, Los Angeles", "r": [2400, 1582], "x": {"cam": "Nikon D5100", "fl": "42mm", "f": "f/4.5", "ss": "1/1600s", "iso": "ISO 100"}, "hdr": true},
   29: {"s": "city", "t": "Taj Mahal Through the Gate", "p": "Agra, India", "r": [1589, 2400], "x": {"cam": "Nikon D5100", "fl": "12mm", "f": "f/8", "ss": "1/250s", "iso": "ISO 100"}},
-  30: {"s": "speed", "t": "Cook County Sheriff N911VH", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "187mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
-  31: {"s": "speed", "t": "Chicago Police N911ZP", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "240mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
-  32: {"s": "speed", "t": "Rescue Demonstration", "p": "Chicago Fire Department, Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "375mm", "f": "f/6.3", "ss": "1/3200s", "iso": "ISO 200"}},
+  30: {"s": "air", "t": "Cook County Sheriff N911VH", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "187mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
+  31: {"s": "air", "t": "Chicago Police N911ZP", "p": "Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "240mm", "f": "f/8", "ss": "1/1600s", "iso": "ISO 200"}},
+  32: {"s": "air", "t": "Rescue Demonstration", "p": "Chicago Fire Department, Chicago, Illinois", "r": [2400, 1600], "x": {"cam": "Nikon Z 50", "fl": "375mm", "f": "f/6.3", "ss": "1/3200s", "iso": "ISO 200"}},
   33: {"s": "wild", "t": "Koala", "p": "Washington, D.C.", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/250s", "iso": "ISO 640"}},
   34: {"s": "wild", "t": "Andean Cock-of-the-Rock", "p": "San Diego, California", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "210mm", "f": "f/6", "ss": "1/250s", "iso": "ISO 1800"}},
   35: {"s": "wild", "t": "Golden-Breasted Starling", "p": "Wildlife", "r": [1598, 2400], "x": {"cam": "Nikon Z 50", "fl": "160mm", "f": "f/5.6", "ss": "1/125s", "iso": "ISO 6400"}},
   36: {"s": "wild", "t": "Lionesses", "p": "Chicago, Illinois", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/6.3", "ss": "1/640s", "iso": "ISO 100"}},
-  37: {"s": "speed", "t": "Kentucky Derby", "p": "Louisville, Kentucky", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "120mm", "f": "f/5.3", "ss": "1/1000s", "iso": "ISO 500"}},
+  37: {"s": "ground", "t": "Kentucky Derby", "p": "Louisville, Kentucky", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "120mm", "f": "f/5.3", "ss": "1/1000s", "iso": "ISO 500"}},
   38: {"s": "city", "t": "Cherry Blossoms at the Tidal Basin", "p": "Washington, D.C.", "r": [2400, 1800], "x": {"cam": "iPhone 17 Pro", "fl": "100mm", "f": "f/2.8", "ss": "1/120s", "iso": "ISO 200", "ev": "+2 EV"}},
-  39: {"s": "speed", "t": "Etihad A350-1000", "p": "Abu Dhabi, UAE", "r": [2400, 1800], "x": {"cam": "iPhone 17 Pro", "fl": "200mm", "f": "f/2.8", "ss": "1/334s", "iso": "ISO 20"}},
-  40: {"s": "speed", "t": "Grave Digger", "p": "Seattle, Washington", "r": [2400, 1800], "x": {"cam": "iPhone 14 Pro", "fl": "135mm", "f": "f/2.8", "ss": "1/100s", "iso": "ISO 160"}}
+  39: {"s": "air", "t": "Etihad A350-1000", "p": "Abu Dhabi, UAE", "r": [2400, 1800], "x": {"cam": "iPhone 17 Pro", "fl": "200mm", "f": "f/2.8", "ss": "1/334s", "iso": "ISO 20"}},
+  40: {"s": "ground", "t": "Son-uva Digger Monster Truck", "p": "Seattle, Washington", "r": [2400, 1800], "x": {"cam": "iPhone 14 Pro", "fl": "135mm", "f": "f/2.8", "ss": "1/100s", "iso": "ISO 160"}},
+  41: {"s": "city", "t": "Boudhanath Stupa", "p": "Kathmandu, Nepal", "r": [2258, 1502], "x": {"cam": "Nikon Z 50", "fl": "16mm", "f": "f/9", "ss": "1/640s", "iso": "ISO 100"}},
+  42: {"s": "wild", "t": "Bee-Eater in Profile", "p": "Washington, D.C.", "r": [998, 1502], "x": {"cam": "Nikon Z 50", "fl": "165mm", "f": "f/5.6", "ss": "1/500s", "iso": "ISO 200"}},
+  43: {"s": "air", "t": "Thunderbirds Diamond, From Below", "p": "USAF Thunderbirds, Chicago", "r": [2400, 1606], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 400"}},
+  44: {"s": "air", "t": "Coast Guard Rescue", "p": "U.S. Coast Guard, Chicago", "r": [2400, 1597], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 400"}},
+  45: {"s": "air", "t": "Thunderbirds Diamond", "p": "USAF Thunderbirds, Chicago", "r": [2400, 1598], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 400"}},
+  46: {"s": "air", "t": "Golden Knights Jumper", "p": "U.S. Army, Chicago", "r": [2400, 1597], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/10", "ss": "1/2000s", "iso": "ISO 400"}},
+  47: {"s": "air", "t": "F-22 Raptor, Vapor", "p": "Chicago, Illinois", "r": [2400, 1597], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/8", "ss": "1/2000s", "iso": "ISO 400"}},
+  48: {"s": "air", "t": "F-22 Raptor, Flares", "p": "Chicago, Illinois", "r": [1094, 1650], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/9", "ss": "1/2000s", "iso": "ISO 400"}},
+  49: {"s": "air", "t": "F-22 Raptor, Climb", "p": "Chicago, Illinois", "r": [2400, 1530], "x": {"cam": "Nikon Z 50", "fl": "250mm", "f": "f/7.1", "ss": "1/2000s", "iso": "ISO 400"}},
+  50: {"s": "ground", "t": "Overland Porsche Cayenne", "p": "Chicago, Illinois", "r": [2254, 1496], "x": {"cam": "Nikon Z 50", "fl": "26mm", "f": "f/5.6", "ss": "1/250s", "iso": "ISO 100"}},
+  51: {"s": "ground", "t": "Porsche 356 SC", "p": "Chicago, Illinois", "r": [2258, 1498], "x": {"cam": "Nikon Z 50", "fl": "30mm", "f": "f/6.3", "ss": "1/320s", "iso": "ISO 100"}},
+  52: {"s": "ground", "t": "Lada Taxi at the Mud Volcanoes", "p": "Gobustan, Azerbaijan", "r": [2260, 1498], "x": {"cam": "Nikon Z 50", "fl": "23mm", "f": "f/5.6", "ss": "1/250s", "iso": "ISO 140"}}
 };
 /* Camera settings live in x:{cam, lens, fl, f, ss, iso, ev, d}. hdr:true adds the HDR tag. */
-const ORDER = [1,5,19,29,34,25,12,37,2,14,31,23,11,17,38,13,21,28,33,39,4,9,7,6,32,8,18,27,36,15,22,24,40,10,26,30,3,35,20,16];
+const ORDER = [1,43,29,5,48,2,34,41,19,14,52,27,8,44,25,42,11,10,13,37,45,7,33,51,6,12,28,47,3,39,23,36,9,4,46,15,18,26,49,38,21,22,32,50,17,24,35,16,20,31,30,40];
 const exLine = x => x ? [x.fl,x.f,x.ss,x.iso,x.ev].filter(Boolean).join(' · ') : '';
 const id2 = n => String(n).padStart(2,'0');
 const full = n => `img/full/${id2(n)}.jpg`, thumb = n => `img/thumb/${id2(n)}.jpg`;
