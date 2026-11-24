@@ -121,6 +121,12 @@ figcaption .pl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-
 .elsewhere{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .elsewhere a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);text-decoration:none;border:1px solid var(--sodium);border-radius:999px;padding:10px 16px;box-shadow:0 0 0 1px rgba(255,169,77,.15),0 0 14px rgba(255,169,77,.18);transition:background .2s,color .2s}
 .elsewhere a:hover{background:var(--sodium);color:var(--ink)}
+.numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:28px 0 0;border-top:1px solid var(--line)}
+.numbers div{padding:16px 0 14px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.numbers div:not(:nth-child(3n+1)){padding-left:18px;border-left:1px solid var(--line)}
+.numbers b{font-family:var(--display);font-weight:400;font-size:clamp(26px,3vw,34px);line-height:1;color:var(--paper);font-variant-numeric:tabular-nums}
+.numbers span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.numbers div:not(:nth-child(3n+1)){padding-left:0;border-left:0}.numbers div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}}
 .series-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
 .series-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .series-list li{padding:0}
@@ -238,9 +244,10 @@ footer a{color:inherit;text-decoration:none}
       </nav>
     </div>
     <div>
-      <p>I photograph light, places, wildlife, and things that move fast. Some frames take thirty seconds and a flashlight; others take a two-thousandth of a second and a lot of luck.</p>
+      <p>I photograph light, places, wildlife, and things that move fast. Some frames take thirty seconds and a flashlight; others take a four-thousandth of a second and a lot of luck.</p>
       <p>Shot on my Nikons and iPhones.</p>
       <p>Published: <a class="about-link" href="https://digital-photography-school.com/how-to-create-a-spectacular-background-using-an-el-bokeh-wall/" target="_blank" rel="noopener">How to Create a Spectacular Background Using an EL Bokeh Wall</a>, Digital Photography School, 2015.</p>
+      <div class="numbers" id="numbers" aria-label="By the numbers"></div>
       <ul class="series-list" id="seriesList"></ul>
     </div>
   </section>
@@ -455,6 +462,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   e.preventDefault();glide(id==='top'?0:t.getBoundingClientRect().top+scrollY-8);
   if(id==='top'){const h=document.querySelector('.hero');h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}
 }));
+/* By the numbers: computed from PHOTOS so it updates as photos are added */
+(function(){
+  const X=Object.values(PHOTOS).map(p=>p.x).filter(Boolean);
+  const sec=v=>{if(!v)return null;let m=v.match(/^1\/(\d+)s$/);if(m)return 1/+m[1];m=v.match(/^([\d.]+)s$/);return m?+m[1]:null};
+  const S=X.map(x=>[sec(x.ss),x.ss]).filter(a=>a[0]);S.sort((a,b)=>a[0]-b[0]);
+  const fl={};X.forEach(x=>{const m=(x.fl||'').match(/^([\d.]+)mm$/);if(m)fl[m[1]]=(fl[m[1]]||0)+1});
+  const top=Object.entries(fl).sort((a,b)=>b[1]-a[1])[0];
+  const iso=X.map(x=>+((x.iso||'').replace(/\D/g,''))).filter(Boolean);
+  const US=/(California|D\.C\.|Georgia|Illinois|Kentucky|Louisiana|Tennessee|Utah|Washington|Los Angeles|Seattle)$/;
+  const CC={France:1,Paris:1,India:1,Indonesia:1,Italy:1,Nepal:1,Switzerland:1,UAE:1,Azerbaijan:1,Singapore:1,'Zürich Hauptbahnhof':'Switzerland'};
+  const places=new Set();Object.values(PHOTOS).forEach(({p})=>{const t=p.split(',').pop().trim();if(US.test(t))places.add('USA');else if(CC[t])places.add(CC[t]===1?(t==='Paris'?'France':t):CC[t])});
+  const cells=[
+    [Object.keys(PHOTOS).length,'Photographs'],
+    [S[S.length-1][1].replace('s',' s'),'Longest exposure'],
+    [S[0][1].replace('s',' s'),'Fastest shutter'],
+    [top[0]+'mm','Most-used focal length'],
+    [Math.max(...iso).toLocaleString('en-US'),'Highest ISO'],
+    [places.size,'Countries']
+  ];
+  document.getElementById('numbers').innerHTML=cells.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');
+})();
 drawFilters();layout();
 
 /* ---------- Lightbox ---------- */
