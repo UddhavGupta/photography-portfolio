@@ -121,21 +121,10 @@ figcaption .pl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-
 .elsewhere{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .elsewhere a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);text-decoration:none;border:1px solid var(--sodium);border-radius:999px;padding:10px 16px;box-shadow:0 0 0 1px rgba(255,169,77,.15),0 0 14px rgba(255,169,77,.18);transition:background .2s,color .2s}
 .elsewhere a:hover{background:var(--sodium);color:var(--ink)}
-.series-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
-.series-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.series-list li{padding:0}
-.series-list button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;gap:12px;padding:14px 0;cursor:pointer;transition:color .2s}
-.series-list button:hover b,.series-list button:focus-visible b{color:var(--sodium)}
-.series-list button:focus-visible{outline:2px solid var(--sodium);outline-offset:2px}
-.series-list li:nth-child(odd) button{padding-right:20px}
-.series-list li:nth-child(even) button{padding-left:20px}
 .wall{transition:opacity .22s ease}
 .wall.swap{opacity:0}
 .plate.rise{animation:rise .6s cubic-bezier(.2,.75,.15,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.series-list li:nth-child(odd){padding-right:0}
-.series-list li:nth-child(even){padding-left:0;border-left:1px solid var(--line)}
-.series-list b{color:var(--paper);font-weight:500}
 footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px clamp(16px,4vw,48px) 40px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 footer a{color:inherit;text-decoration:none}
 
@@ -186,10 +175,7 @@ footer a{color:inherit;text-decoration:none}
   .lb-top{padding-top:calc(12px + env(safe-area-inset-top))}
   .kb{display:none}
   .lb-hint{display:block}
-  .series-list{grid-template-columns:1fr}
-  .series-list li:nth-child(even){border-left:0}
-  .series-list li:nth-child(odd) button,.series-list li:nth-child(even) button{padding:14px 0}
-  .elsewhere a{min-height:44px;display:inline-flex;align-items:center;gap:6px}
+        .elsewhere a{min-height:44px;display:inline-flex;align-items:center;gap:6px}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
@@ -241,7 +227,6 @@ footer a{color:inherit;text-decoration:none}
       <p>I photograph light, places, wildlife, and things that move fast. Some frames take thirty seconds and a flashlight; others take a four-thousandth of a second and a lot of luck.</p>
       <p>Shot on my Nikons and iPhones.</p>
       <p>Published: <a class="about-link" href="https://digital-photography-school.com/how-to-create-a-spectacular-background-using-an-el-bokeh-wall/" target="_blank" rel="noopener">How to Create a Spectacular Background Using an EL Bokeh Wall</a>, Digital Photography School, 2015.</p>
-      <ul class="series-list" id="seriesList"></ul>
     </div>
   </section>
 </main>
@@ -423,8 +408,6 @@ function drawFilters(){
   const el=document.getElementById('filters');
   el.innerHTML=['all',...Object.keys(SERIES)].map(k=>`<button class="chip" type="button" data-f="${k}" aria-pressed="${filter===k}">${k==='all'?'All':SERIES[k]}<small>${id2(c[k])}</small></button>`).join('');
   el.querySelectorAll('.chip').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
-  document.getElementById('seriesList').innerHTML=Object.keys(SERIES).map(k=>`<li><button type="button" data-f="${k}" aria-label="Show ${SERIES[k]}"><b>${SERIES[k]}</b><span>${id2(c[k])} plates</span></button></li>`).join('');
-  document.querySelectorAll('#seriesList button').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
 }
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(colCount()!==wall.children.length)layout()},120)});
 /* Smooth, eased scrolling and filter transitions */
